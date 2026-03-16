@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cat Food Calculator – How Much Should I Feed My Cat? | NutriCat</title>
+<meta name="description" content="Free cat food calculator to estimate how much food your cat should eat daily based on weight and food calories. Based on veterinary nutrition guidelines.">
+
+
+<!-- START: OpenGraph -->
+
+<meta property="og:title" content="Cat Food Calculator – NutriCat">
+<meta property="og:description" content="Free calculator to estimate how much food your cat should eat daily.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourdomain.com">
+
+<!-- END: OpenGraph -->
+
+
+<!-- WebApp Structured Data -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"NutriCat – Cat Food Calculator",
+"description":"Free calculator to estimate how much food your cat should eat based on weight and food calories.",
+"url":"https://yourusername.github.io/nutricat/",
+"applicationCategory":"HealthApplication",
+"operatingSystem":"Any",
+"offers":{"@type":"Offer","price":"0"}
+}
+</script>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{"@type":"Question","name":"How much food should a cat eat per day?","acceptedAnswer":{"@type":"Answer","text":"Most adult cats need about 40–50 calories per kilogram of body weight per day depending on activity level and food energy density."}},
+{"@type":"Question","name":"How many meals should a cat eat per day?","acceptedAnswer":{"@type":"Answer","text":"Most veterinarians recommend dividing the daily food amount into two or three meals per day."}},
+{"@type":"Question","name":"How many grams of dry food should a cat eat?","acceptedAnswer":{"@type":"Answer","text":"The amount depends on the calorie density of the food. Dry foods usually contain 3500–4200 kcal per kilogram."}}
+]
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🐱 NutriCat – Cat Food Calculator</h1>
+    <p class="trust">Based on veterinary nutrition guidelines</p>
+
+    <div class="hero" id="hero"></div>
+
+    <div class="toggle-row">
+        <div class="toggle-container">
+            <label id="darkModeLabel" for="darkToggle">Dark Mode</label>
+            <div class="toggle-switch">
+                <input type="checkbox" id="darkToggle" />
+                <div class="toggle-thumb"></div>
+            </div>
+        </div>
+
+        <div class="toggle-container">
+            <label id="langLabel" for="langToggle">English</label>
+            <div class="toggle-switch">
+                <input type="checkbox" id="langToggle" />
+                <div class="toggle-thumb"></div>
+            </div>
+        </div>
+    </div>
+
+    <label id="weightLabel"></label>
+    <input type="range" id="weightRange" min="1" max="20" step="0.1" value="4.5">
+    <input type="number" id="weight" step="0.1">
+
+    <label id="typeLabel"></label>
+    <select id="type">
+        <option value="1.2" data-en="Neutered adult" data-pt="Adulto castrado"></option>
+        <option value="1.4" data-en="Intact adult" data-pt="Adulto não castrado"></option>
+        <option value="1.0" data-en="Inactive / Obese prone" data-pt="Inativo / propenso à obesidade"></option>
+        <option value="0.8" data-en="Weight loss" data-pt="Perda de peso"></option>
+        <option value="2.5" data-en="Kitten" data-pt="Filhote"></option>
+    </select>
+
+    <label id="productLabel"></label>
+    <select id="foodSelect"></select>
+
+    <label id="foodLabel"></label>
+    <input type="range" id="foodRange" min="500" max="5000" step="10" value="3700">
+    <input type="number" id="foodEnergy" min="500" max="5000" step="10">
+
+    <div class="result" id="result"></div>
+
+    <!-- Copy & Share Buttons -->
+    <button id="copyResult"></button>
+    <canvas id="shareCanvas" width="400" height="200" style="display:none;border-radius:12px;"></canvas>
+    <button id="downloadImage"></button>
+    <p class="share" id="shareText"></p>
+
+    <!-- SEO Content -->
+    <section class="seo-content" id="seoContent"></section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faqContent"></section>
+
+    <div class="disclaimer" id="disclaimer"></div>
+
+</div>
+
+<script src="food.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+/* ============================= */
+/* Root Variables for Pink Theme */
+/* ============================= */
+:root {
+    --primary: #ff5e99;  
+    --secondary: #f9a7d6; 
+    --bg-light: #fef2f8;  
+    --bg-dark: #2c1a3c;   
+    --card-light: #ffffff;
+    --card-dark: #3a1a45;  
+    --text-light: #333;
+    --text-dark: #f2f2f2;
+    --slider-track-light: #f0c1d9;
+    --slider-track-dark: #4b1f36;
+    --button-hover: #e0538b;
+}
+
+/* ============================= */
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: var(--bg-light);
+    color: var(--text-light);
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+body.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+/* ============================= */
+/* Container Styles */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: var(--card-light);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+body.dark .container {
+    background: var(--card-dark);
+}
+
+/* ============================= */
+/* Typography Styles */
+h1 { text-align: center; font-size: 32px; margin-bottom: 5px; }
+.hero { text-align: center; font-size: 18px; margin-bottom: 25px; }
+label { font-weight: bold; margin-top: 15px; display: block; }
+p { line-height: 1.6; }
+.trust{ text-align:center; font-size:14px; opacity:0.8; margin-top:-10px; }
+
+/* ============================= */
+/* Input Fields and Buttons */
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+button { 
+    background: var(--primary); 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    font-weight: bold; 
+    margin-top: 10px;
+    border-radius: 12px;
+    transition: 0.2s; 
+}
+button:hover { 
+    background: var(--button-hover);
+}
+
+/* ============================= */
+/* Result Box */
+.result { 
+    margin-top: 25px; 
+    padding: 15px; 
+    border-radius: 15px; 
+    background: #ffd9ee; 
+    text-align: center; 
+    font-size: 16px;
+}
+
+body.dark .result { background: rgba(255,105,180,0.1); }
+
+/* ============================= */
+/* Copy & Share Buttons */
+#copyResult, #downloadImage {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+/* ============================= */
+/* Toggle Row */
+.toggle-row { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 15px; 
+    align-items: center; 
+}
+.toggle-row label { margin-right: 10px; }
+
+/* ============================= */
+/* Sliders */
+input[type="range"] {
+    -webkit-appearance:none;
+    width:100%;
+    height:8px;
+    border-radius:999px;
+    margin-top:10px;
+    outline:none;
+    transition: background 0.3s ease;
+}
+
+/* Track Colors */
+input[type="range"]::-webkit-slider-runnable-track {
+    height:8px;
+    border-radius:999px;
+    background: var(--slider-track-light);
+}
+body.dark input[type="range"]::-webkit-slider-runnable-track {
+    background: var(--slider-track-dark);
+}
+
+/* Thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance:none;
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background: var(--primary);
+    border: none;
+    cursor:pointer;
+    margin-top:-7px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+body.dark input[type="range"]::-webkit-slider-thumb {
+    background: var(--primary);
+}
+
+/* Firefox Thumb & Track */
+input[type="range"]::-moz-range-thumb {
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background: var(--primary);
+    border:none;
+    cursor:pointer;
+}
+input[type="range"]::-moz-range-track {
+    height:8px;
+    border-radius:999px;
+    background: var(--slider-track-light);
+}
+body.dark input[type="range"]::-moz-range-track { background: var(--slider-track-dark); }
+
+/* ============================= */
+/* Toggle Switch */
+.toggle-switch { width:60px; height:30px; border-radius:20px; background: var(--primary); position:relative; cursor:pointer; }
+.toggle-switch input { opacity:0; position:absolute; }
+.toggle-switch .toggle-thumb { width:25px; height:25px; background:white; border-radius:50%; position:absolute; top:3px; left:3px; transition:transform 0.3s ease; }
+.toggle-switch input:checked + .toggle-thumb { transform: translateX(30px); }
+
+/* ============================= */
+/* SEO / FAQ Content */
+.seo-content, .faq { margin-top:40px; line-height:1.6; font-size:15px; background: var(--secondary); padding:20px; border-radius:12px; }
+body.dark .seo-content, body.dark .faq { background: rgba(255,90,153,0.1); }
+.seo-content h2, .faq h2 { margin-bottom:15px; font-size:18px; color: var(--primary); }
+.seo-content h3, .faq h3 { margin-top:15px; font-size:16px; color:#333; }
+body.dark .seo-content h3, body.dark .faq h3 { color: #f2f2f2; }
+.seo-content p, .faq p { margin-bottom:10px; font-size:14px; }
+
+/* Remove repetitive info in FAQ */
+.faq p { margin-bottom:8px; }
