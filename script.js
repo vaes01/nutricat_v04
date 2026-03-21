@@ -212,10 +212,27 @@ window.addEventListener("load",()=>{
 
 // Copy & Share
 const copyButton=document.getElementById("copyResult");
-copyButton.addEventListener("click", () => {
+
+copyButton.addEventListener("click", async () => {
   const text = resultDiv.innerText;
 
-  navigator.clipboard.writeText(text).then(() => {
+  if (!text || text.trim() === "") {
+    alert("Nothing to copy yet.");
+    return;
+  }
+
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      // fallback
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
 
     if (typeof gtag !== "undefined") {
       gtag('event', 'copy_result', {
@@ -224,15 +241,16 @@ copyButton.addEventListener("click", () => {
       });
     }
 
-    copyButton.innerText = translations[currentLang].copyResult + " ✓";
+    copyButton.innerText = "Copied ✓";
 
     setTimeout(() => {
       copyButton.innerText = translations[currentLang].copyResult;
     }, 2000);
 
-  }).catch(() => {
-    alert("Failed to copy. Please copy manually.");
-  });
+  } catch (err) {
+    console.error("Copy failed:", err);
+    alert("Copy failed. Please copy manually.");
+  }
 });
 
 
