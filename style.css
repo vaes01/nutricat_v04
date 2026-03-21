@@ -186,3 +186,20 @@ body.dark .seo-content h3, body.dark .faq h3 { color: #f2f2f2; }
 
 /* Remove repetitive info in FAQ */
 .faq p { margin-bottom:8px; }
+
+
+/* footer */
+.footer-links {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-links a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
