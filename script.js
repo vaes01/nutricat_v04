@@ -166,6 +166,15 @@ foodSelect.addEventListener("change", function(){
   localStorage.setItem("lastFood",selectedFood.id); recalculate();
 });
 
+foodSelect.addEventListener("change", function(){
+
+  gtag('event', 'select_food', {
+    event_category: 'interaction',
+    event_label: this.value
+  });
+
+});
+
 weightInput.addEventListener("input",()=>{weightRange.value=weightInput.value; recalculate();});
 weightRange.addEventListener("input",()=>{weightInput.value=weightRange.value; recalculate();});
 function setCustomFoodIfManualChange(){ if(foodSelect.value!=="custom"){foodSelect.value="custom"; localStorage.removeItem("lastFood");} };
@@ -209,6 +218,26 @@ copyButton.addEventListener("click",()=>{
   setTimeout(()=>{copyButton.innerText=translations[currentLang].copyResult;},2000);
 });
 
+copyButton.addEventListener("click", () => {
+  navigator.clipboard.writeText(resultDiv.innerText);
+
+  if (typeof gtag !== "undefined") {
+    gtag('event', 'copy_result', {
+      event_category: 'engagement',
+      event_label: 'copy_button'
+    });
+  }
+
+  copyButton.innerText = translations[currentLang].copyResult + " ✓";
+  setTimeout(() => {
+    copyButton.innerText = translations[currentLang].copyResult;
+  }, 2000);
+});
+
+
+
+
+
 const canvas=document.getElementById("shareCanvas");
 const ctx=canvas.getContext("2d");
 const downloadBtn=document.getElementById("downloadImage");
@@ -236,4 +265,46 @@ downloadBtn.addEventListener("click",()=>{
   link.download="NutriCat_Result.png";
   link.href=canvas.toDataURL();
   link.click();
+});
+
+
+downloadBtn.addEventListener("click", () => {
+
+  if (typeof gtag !== "undefined") {
+    gtag('event', 'download_image', {
+      event_category: 'engagement',
+      event_label: 'share_image'
+    });
+  }
+
+  const weightVal=parseFloat(weightInput.value)||0;
+  const mult=parseFloat(typeSelect.value)||1;
+  const energy=parseFloat(foodEnergyInput.value)||1;
+  const calories=Math.round(70*Math.pow(weightVal,0.75)*mult);
+  const grams=Math.round((calories/energy)*1000);
+
+  drawShareImage(calories,grams);
+
+  const link=document.createElement("a");
+  link.download="NutriCat_Result.png";
+  link.href=canvas.toDataURL();
+  link.click();
+});
+
+
+
+// track answers
+
+document.querySelectorAll(".feedback-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    const answer = btn.getAttribute("data-answer");
+
+    gtag('event', 'feedback_answer', {
+      event_category: 'feedback',
+      event_label: answer
+    });
+
+    btn.innerText = "Thanks! 🐱";
+  });
 });
