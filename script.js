@@ -212,26 +212,27 @@ window.addEventListener("load",()=>{
 
 // Copy & Share
 const copyButton=document.getElementById("copyResult");
-copyButton.addEventListener("click",()=>{
-  navigator.clipboard.writeText(resultDiv.innerText);
-  copyButton.innerText=translations[currentLang].copyResult + " ✓";
-  setTimeout(()=>{copyButton.innerText=translations[currentLang].copyResult;},2000);
-});
-
 copyButton.addEventListener("click", () => {
-  navigator.clipboard.writeText(resultDiv.innerText);
+  const text = resultDiv.innerText;
 
-  if (typeof gtag !== "undefined") {
-    gtag('event', 'copy_result', {
-      event_category: 'engagement',
-      event_label: 'copy_button'
-    });
-  }
+  navigator.clipboard.writeText(text).then(() => {
 
-  copyButton.innerText = translations[currentLang].copyResult + " ✓";
-  setTimeout(() => {
-    copyButton.innerText = translations[currentLang].copyResult;
-  }, 2000);
+    if (typeof gtag !== "undefined") {
+      gtag('event', 'copy_result', {
+        event_category: 'engagement',
+        event_label: 'copy_button'
+      });
+    }
+
+    copyButton.innerText = translations[currentLang].copyResult + " ✓";
+
+    setTimeout(() => {
+      copyButton.innerText = translations[currentLang].copyResult;
+    }, 2000);
+
+  }).catch(() => {
+    alert("Failed to copy. Please copy manually.");
+  });
 });
 
 
