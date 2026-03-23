@@ -4,21 +4,52 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cat Food Calculator – How Much Should I Feed My Cat? | NutriCat</title>
-<meta name="description" content="Free cat food calculator to estimate how much food your cat should eat daily based on weight and food calories. Based on veterinary nutrition guidelines.">
+<title>Cat Feeding Guide & Calculator | NutriCat</title>
 
+<meta name="description" content="Learn how much to feed your cat with a free calculator based on veterinary guidelines. Includes feeding guide, tips, and calorie formula.">
 
-<!-- START: OpenGraph -->
-
-<meta property="og:title" content="Cat Food Calculator – NutriCat">
-<meta property="og:description" content="Free calculator to estimate how much food your cat should eat daily.">
+<!-- Open Graph -->
+<meta property="og:title" content="Cat Feeding Guide & Calculator | NutriCat">
+<meta property="og:description" content="Free cat feeding calculator with veterinary-based feeding guide.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://catfoodcalculator.app">
 
-<!-- END: OpenGraph -->
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"NutriCat – Cat Food Calculator",
+"description":"Free cat feeding calculator based on veterinary guidelines.",
+"url":"https://catfoodcalculator.app",
+"applicationCategory":"HealthApplication",
+"offers":{"@type":"Offer","price":"0"}
+}
+</script>
 
-<!-- GA -->
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{
+"@type":"Question",
+"name":"How much should I feed my cat?",
+"acceptedAnswer":{"@type":"Answer","text":"Most adult cats need about 40–50 calories per kilogram of body weight per day."}
+},
+{
+"@type":"Question",
+"name":"How often should I feed my cat?",
+"acceptedAnswer":{"@type":"Answer","text":"Feed cats 2–3 meals per day for best results."}
+}
+]
+}
+</script>
 
+<link rel="stylesheet" href="style.css">
+
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6SNFPKJN2W"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -27,120 +58,143 @@ gtag('js', new Date());
 gtag('config', 'G-6SNFPKJN2W');
 </script>
 
-<!-- WebApp Structured Data -->
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"WebApplication",
-"name":"NutriCat – Cat Food Calculator",
-"description":"Free calculator to estimate how much food your cat should eat based on weight and food calories.",
-"url":"https://catfoodcalculator.app",
-"applicationCategory":"HealthApplication",
-"operatingSystem":"Any",
-"offers":{"@type":"Offer","price":"0"}
-}
-</script>
-
-<!-- FAQ Structured Data -->
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"FAQPage",
-"mainEntity":[
-{"@type":"Question","name":"How much food should a cat eat per day?","acceptedAnswer":{"@type":"Answer","text":"Most adult cats need about 40–50 calories per kilogram of body weight per day depending on activity level and food energy density."}},
-{"@type":"Question","name":"How many meals should a cat eat per day?","acceptedAnswer":{"@type":"Answer","text":"Most veterinarians recommend dividing the daily food amount into two or three meals per day."}},
-{"@type":"Question","name":"How many grams of dry food should a cat eat?","acceptedAnswer":{"@type":"Answer","text":"The amount depends on the calorie density of the food. Dry foods usually contain 3500–4200 kcal per kilogram."}}
-]
-}
-</script>
-
-<link rel="stylesheet" href="style.css">
-
 <!-- AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7469863369084787"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7469863369084787" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
 
 <div class="container">
-    <h1>🐱 NutriCat – Cat Food Calculator</h1>
-    <p class="trust">Based on veterinary nutrition guidelines</p>
 
-    <div class="hero" id="hero"></div>
+<!-- ================= CONTENT (CRITICAL FOR ADSENSE) ================= -->
 
-    <div class="toggle-row">
-        <div class="toggle-container">
-            <label id="darkModeLabel" for="darkToggle">Dark Mode</label>
-            <div class="toggle-switch">
-                <input type="checkbox" id="darkToggle" />
-                <div class="toggle-thumb"></div>
-            </div>
-        </div>
+<h1>🐱 Cat Feeding Guide</h1>
+<div class="hero" id="hero"></div>
 
+<p>
+Feeding your cat correctly is essential for maintaining a healthy weight and preventing obesity or malnutrition.
+This guide explains how to estimate your cat’s daily food needs using veterinary nutrition principles.
+</p>
+
+<h2>How Much Should I Feed My Cat?</h2>
+
+<p>
+The amount depends on weight, activity level, and food calorie density. Most adult cats require approximately
+<strong>40–50 calories per kilogram of body weight per day</strong>.
+</p>
+
+<h2>Cat Calorie Formula</h2>
+
+<p>
+Veterinarians use this formula:
+</p>
+
+<p><strong>RER = 70 × (body weight in kg)<sup>0.75</sup></strong></p>
+
+<p>
+This is multiplied by a factor based on life stage (kitten, neutered, weight loss, etc.).
+</p>
+
+<h2>Feeding Tips</h2>
+
+<ul>
+<li>Feed 2–3 meals per day</li>
+<li>Always provide fresh water</li>
+<li>Monitor your cat’s weight regularly</li>
+<li>Adjust portions based on results</li>
+</ul>
+
+<h2>Wet Food vs Dry Food</h2>
+
+<p>
+Dry food contains ~3500–4200 kcal/kg, while wet food contains fewer calories but more moisture.
+Always check packaging for exact values.
+</p>
+
+<h2>Important Disclaimer</h2>
+
+<p>
+This tool provides an estimate only. Always consult a veterinarian for personalized advice.
+</p>
+
+<hr>
+
+<!-- ================= CALCULATOR (FULLY RESTORED) ================= -->
+
+<h2>Cat Food Calculator</h2>
+
+<div class="toggle-row">
+  <div class="toggle-container">
+    <label id="darkModeLabel" for="darkToggle">Dark Mode</label>
+    <div class="toggle-switch">
+      <input type="checkbox" id="darkToggle">
+      <div class="toggle-thumb"></div>
     </div>
+  </div>
+</div>
 
-    <label id="weightLabel" for="weight"></label>
-    <input type="range" id="weightRange" min="1" max="20" step="0.1" value="4.5">
-    <input type="number" id="weight" step="0.1">
+<label id="weightLabel">Cat Weight (kg)</label>
+<input type="range" id="weightRange" min="1" max="20" step="0.1" value="4.5">
+<input type="number" id="weight" step="0.1">
 
-    <label id="typeLabel"></label>
-    <select id="type">
-        <option value="1.2" data-en="Neutered adult" data-pt="Adulto castrado"></option>
-        <option value="1.4" data-en="Intact adult" data-pt="Adulto não castrado"></option>
-        <option value="1.0" data-en="Inactive / Obese prone" data-pt="Inativo / propenso à obesidade"></option>
-        <option value="0.8" data-en="Weight loss" data-pt="Perda de peso"></option>
-        <option value="2.5" data-en="Kitten" data-pt="Filhote"></option>
-    </select>
+<label id="typeLabel">Cat Type</label>
+<select id="type">
+  <option value="1.2" data-en="Neutered adult" data-pt="Adulto castrado"></option>
+  <option value="1.4" data-en="Intact adult" data-pt="Adulto não castrado"></option>
+  <option value="1.0" data-en="Inactive / Obese prone" data-pt="Inativo / propenso à obesidade"></option>
+  <option value="0.8" data-en="Weight loss" data-pt="Perda de peso"></option>
+  <option value="2.5" data-en="Kitten" data-pt="Filhote"></option>
+</select>
 
-    <label id="productLabel"></label>
-    <select id="foodSelect"></select>
+<label id="productLabel">Select food product</label>
+<select id="foodSelect"></select>
 
-    <label id="foodLabel"></label>
-    <input type="range" id="foodRange" min="500" max="5000" step="10" value="3700">
-    <input type="number" id="foodEnergy" min="500" max="5000" step="10">
+<label id="foodLabel">Food Energy (kcal/kg)</label>
+<input type="range" id="foodRange" min="500" max="5000" step="10" value="3700">
+<input type="number" id="foodEnergy">
 
-    <div class="result" id="result"></div>
+<div class="result" id="result"></div>
 
-    <!-- Copy & Share Buttons -->
-    <button id="copyResult"></button>
+<button id="copyResult">Copy Result</button>
+<button id="downloadImage">Download / Share</button>
 
-    <canvas id="shareCanvas" width="400" height="200" style="display:none;border-radius:12px;"></canvas>
-    <button id="downloadImage"></button>
-    <p class="share" id="shareText"></p>
+<canvas id="shareCanvas" width="400" height="200" style="display:none;"></canvas>
 
+<p id="shareText"></p>
 
-    <!-- Feedback -->
-    <div id="feedback">
-        <p>What would help you more?</p>
-        <button class="feedback-btn" data-answer="schedule">Feeding schedule</button>
-        <button class="feedback-btn" data-answer="brands">Best food brands</button>
-        <button class="feedback-btn" data-answer="weight">Weight loss plan</button>
-    </div>
+<!-- ================= FEEDBACK ================= -->
 
-    <!-- <button>See best food for this plan 🐱</button> -->
+<div id="feedback">
+  <p>What would help you more?</p>
+  <button class="feedback-btn" data-answer="schedule">Feeding schedule</button>
+  <button class="feedback-btn" data-answer="brands">Best food brands</button>
+  <button class="feedback-btn" data-answer="weight">Weight loss plan</button>
+</div>
 
-    <!-- <button id="buyFood"></button> -->
+<hr>
 
-    <!-- SEO Content -->
-    <section class="seo-content" id="seoContent"></section>
+ <div class="disclaimer" id="disclaimer"></div>
 
-    <!-- FAQ -->
-    <section class="faq" id="faqContent"></section>
+<!-- ================= INTERNAL LINKS ================= -->
 
-    <div class="disclaimer" id="disclaimer"></div>
+<h2>More Guides</h2>
+<ul>
+<li><a href="kitten-feeding.html">Kitten Feeding Guide</a></li>
+<li><a href="cat-weight-loss-guide.html">Cat Weight Loss Guide</a></li>
+<li><a href="wet-vs-dry-cat-food.html">Wet vs Dry Food Guide</a></li>
+</ul>
 
-    <footer class="footer-links">
-        <p>© 2026 NutriCat</p>
-        <a href="about.html">About</a> |
-        <a href="privacy.html">Privacy Policy</a>
-    </footer>
+<footer class="footer-links">
+<p>© 2026 NutriCat</p>
+<a href="about.html">About</a> |
+<a href="privacy.html">Privacy Policy</a>
+</footer>
 
 </div>
 
 <script src="food.js"></script>
 <script src="script.js"></script>
-
 
 </body>
 </html>

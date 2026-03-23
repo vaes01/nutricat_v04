@@ -89,7 +89,7 @@ const translations = {
   }
 };
 
-let currentLang = localStorage.getItem("lang") || "pt";
+let currentLang = localStorage.getItem("lang") || "en";
 
 const weightInput = document.getElementById("weight");
 const weightRange = document.getElementById("weightRange");
@@ -114,8 +114,8 @@ function applyLanguage() {
   document.getElementById("copyResult").innerText = t.copyResult;
   document.getElementById("downloadImage").innerText = t.downloadImage;
   document.getElementById("shareText").innerText = t.shareText;
-  document.getElementById("seoContent").innerHTML = t.seoContent;
-  document.getElementById("faqContent").innerHTML = t.faqContent;
+  // document.getElementById("seoContent").innerHTML = t.seoContent;
+  // document.getElementById("faqContent").innerHTML = t.faqContent;
 
   weightInput.placeholder = currentLang==="en"?"e.g. 4.5":"ex: 4,5";
   document.querySelectorAll("#type option").forEach(opt=>{opt.textContent=opt.getAttribute(`data-${currentLang}`)});
