@@ -7,6 +7,21 @@
   </url>
 
   <url>
+    <loc>https://catfoodcalculator.app/wet-vs-dry-cat-food.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://catfoodcalculator.app/kitten-feeding.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://catfoodcalculator.app/cat-wight-loss-guide.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://catfoodcalculator.app/about.html</loc>
     <priority>0.5</priority>
   </url>
@@ -15,5 +30,7 @@
     <loc>https://catfoodcalculator.app/privacy.html</loc>
     <priority>0.5</priority>
   </url>
+
+
 
 </urlset>
