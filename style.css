@@ -173,7 +173,13 @@ body.dark input[type="range"]::-moz-range-track { background: var(--slider-track
 .toggle-switch { width:60px; height:30px; border-radius:20px; background: var(--primary); position:relative; cursor:pointer; }
 .toggle-switch input { opacity:0; position:absolute; }
 .toggle-switch .toggle-thumb { width:25px; height:25px; background:white; border-radius:50%; position:absolute; top:3px; left:3px; transition:transform 0.3s ease; }
-.toggle-switch input:checked + .toggle-thumb { transform: translateX(30px); }
+.toggle-switch {
+    position: relative;
+}
+
+.toggle-switch input:checked ~ .toggle-thumb {
+    transform: translateX(30px);
+}
 
 /* ============================= */
 /* SEO / FAQ Content */

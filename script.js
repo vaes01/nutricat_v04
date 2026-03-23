@@ -13,8 +13,6 @@ const translations = {
     customFood: "Custom",
     darkMode: "Dark Mode",
     lightMode: "Light Mode",
-    english: "PT-BR",
-    portuguese: "English",
     copyResult: "Copy Result",
     downloadImage: "Download / Share",
     shareText: "Share this calculator with other cat owners 🐱",
@@ -100,10 +98,10 @@ const foodSelect = document.getElementById("foodSelect");
 const foodEnergyInput = document.getElementById("foodEnergy");
 const foodRange = document.getElementById("foodRange");
 const resultDiv = document.getElementById("result");
-const langToggle = document.getElementById("langToggle");
+// const langToggle = document.getElementById("langToggle");
 const darkToggle = document.getElementById("darkToggle");
 const darkModeLabel = document.getElementById("darkModeLabel");
-const langLabel = document.getElementById("langLabel");
+// const langLabel = document.getElementById("langLabel");
 
 function applyLanguage() {
   const t = translations[currentLang];
@@ -145,13 +143,18 @@ function populateFoodList() {
 
 function recalculate() {
   const t = translations[currentLang];
+
   let weight=parseFloat(weightInput.value.replace(',','.'));
+
   let multiplier=parseFloat(typeSelect.value);
   let foodEnergy=parseFloat(foodEnergyInput.value);
-  if(isNaN(weight)||weight<=0||isNaN(foodEnergy)||foodEnergy<=0){
-    resultDiv.innerHTML=t.fillFields;
-    return;
-  }
+
+  if (!weight || weight <= 0 || !foodEnergy || foodEnergy <= 0) {
+  resultDiv.innerHTML = t.fillFields;
+  return;
+}
+
+  
   const RER=70*Math.pow(weight,0.75);
   const calories=RER*multiplier;
   const grams=(calories/foodEnergy)*1000;
@@ -159,20 +162,27 @@ function recalculate() {
 }
 
 // Event Listeners
-foodSelect.addEventListener("change", function(){
-  if(this.value==="custom"||this.value===""){ localStorage.removeItem("lastFood"); return; }
-  const selectedFood=foods.find(f=>f.id==this.value); if(!selectedFood) return;
-  foodEnergyInput.value=selectedFood.energy; foodRange.value=selectedFood.energy;
-  localStorage.setItem("lastFood",selectedFood.id); recalculate();
-});
+foodSelect.addEventListener("change", function () {
 
-foodSelect.addEventListener("change", function(){
+  if (this.value === "custom" || this.value === "") {
+    localStorage.removeItem("lastFood");
+  } else {
+    const selectedFood = foods.find(f => f.id == this.value);
+    if (selectedFood) {
+      foodEnergyInput.value = selectedFood.energy;
+      foodRange.value = selectedFood.energy;
+      localStorage.setItem("lastFood", selectedFood.id);
+    }
 
-  gtag('event', 'select_food', {
-    event_category: 'interaction',
-    event_label: this.value
-  });
+    if (typeof gtag !== "undefined") {
+      gtag('event', 'select_food', {
+        event_category: 'interaction',
+        event_label: this.value
+      });
+    }
+  }
 
+  recalculate();
 });
 
 weightInput.addEventListener("input",()=>{weightRange.value=weightInput.value; recalculate();});
@@ -182,29 +192,19 @@ foodEnergyInput.addEventListener("input",()=>{foodRange.value=foodEnergyInput.va
 foodRange.addEventListener("input",()=>{foodEnergyInput.value=foodRange.value; setCustomFoodIfManualChange(); recalculate();});
 typeSelect.addEventListener("change",recalculate);
 
-langToggle.addEventListener("change",function(){
-  currentLang=this.checked?"en":"pt";
-  localStorage.setItem("lang",currentLang);
-  applyLanguage(); updateToggleLabels(); recalculate();
-});
 
-darkToggle.addEventListener("change",function(){
-  document.body.classList.toggle("dark",this.checked);
-  localStorage.setItem("darkMode",this.checked);
-  updateToggleLabels();
-});
 
-function updateToggleLabels(){
-  const t=translations[currentLang];
-  darkModeLabel.innerText=darkToggle.checked?t.lightMode:t.darkMode;
-  langLabel.innerText=langToggle.checked?t.english:t.portuguese;
-}
+darkToggle.addEventListener("change", function () {
+  document.body.classList.toggle("dark", this.checked);
+  localStorage.setItem("darkMode", this.checked);
+
+  const t = translations[currentLang];
+  darkModeLabel.innerText = this.checked ? t.lightMode : t.darkMode;
+});
 
 window.addEventListener("load",()=>{
   darkToggle.checked = localStorage.getItem("darkMode")==="true";
-  langToggle.checked = currentLang==="en";
   applyLanguage();
-  updateToggleLabels();
   const lastFood = localStorage.getItem("lastFood");
   if(lastFood) foodSelect.value=lastFood;
   recalculate();
@@ -273,22 +273,7 @@ function drawShareImage(calories, grams){
   ctx.fillText(t.shareMessage,20,160);
 }
 
-downloadBtn.addEventListener("click",()=>{
-  const weightVal=parseFloat(weightInput.value)||0;
-  const mult=parseFloat(typeSelect.value)||1;
-  const energy=parseFloat(foodEnergyInput.value)||1;
-  const calories=Math.round(70*Math.pow(weightVal,0.75)*mult);
-  const grams=Math.round((calories/energy)*1000);
-  drawShareImage(calories,grams);
-  const link=document.createElement("a");
-  link.download="NutriCat_Result.png";
-  link.href=canvas.toDataURL();
-  link.click();
-});
-
-
 downloadBtn.addEventListener("click", () => {
-
   if (typeof gtag !== "undefined") {
     gtag('event', 'download_image', {
       event_category: 'engagement',
@@ -296,21 +281,20 @@ downloadBtn.addEventListener("click", () => {
     });
   }
 
-  const weightVal=parseFloat(weightInput.value)||0;
-  const mult=parseFloat(typeSelect.value)||1;
-  const energy=parseFloat(foodEnergyInput.value)||1;
-  const calories=Math.round(70*Math.pow(weightVal,0.75)*mult);
-  const grams=Math.round((calories/energy)*1000);
+  const weightVal = parseFloat(weightInput.value) || 0;
+  const mult = parseFloat(typeSelect.value) || 1;
+  const energy = parseFloat(foodEnergyInput.value) || 1;
 
-  drawShareImage(calories,grams);
+  const calories = Math.round(70 * Math.pow(weightVal, 0.75) * mult);
+  const grams = Math.round((calories / energy) * 1000);
 
-  const link=document.createElement("a");
-  link.download="NutriCat_Result.png";
-  link.href=canvas.toDataURL();
+  drawShareImage(calories, grams);
+
+  const link = document.createElement("a");
+  link.download = "NutriCat_Result.png";
+  link.href = canvas.toDataURL();
   link.click();
 });
-
-
 
 // track answers
 
@@ -324,6 +308,12 @@ document.querySelectorAll(".feedback-btn").forEach(btn => {
       event_label: answer
     });
 
+    const originalText = btn.innerText;
+
     btn.innerText = "Thanks! 🐱";
+
+    setTimeout(() => {
+      btn.innerText = originalText;
+    }, 2000);
   });
 });
