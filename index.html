@@ -4,46 +4,85 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
 <title>Cat Feeding Guide & Calculator | NutriCat</title>
 
 <meta name="description" content="Learn how much to feed your cat with a free calculator based on veterinary guidelines. Includes feeding guide, tips, and calorie formula.">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Cat Feeding Guide & Calculator | NutriCat">
-<meta property="og:description" content="Free cat feeding calculator with veterinary-based feeding guide.">
+<meta property="og:title" content="NutriCat – Cat Food Calculator & Feeding Guide">
+<meta property="og:description" content="Free veterinary-informed cat nutrition calculator. Estimate daily food needs based on weight and food calories.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://catfoodcalculator.app">
+<meta property="og:url" content="https://catfoodcalculator.app/">
+<meta property="og:image" content="https://catfoodcalculator.app/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="NutriCat">
 
 <!-- Structured Data -->
 <script type="application/ld+json">
 {
-"@context":"https://schema.org",
-"@type":"WebApplication",
-"name":"NutriCat – Cat Food Calculator",
-"description":"Free cat feeding calculator based on veterinary guidelines.",
-"url":"https://catfoodcalculator.app",
-"applicationCategory":"HealthApplication",
-"offers":{"@type":"Offer","price":"0"}
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "NutriCat",
+  "url": "https://catfoodcalculator.app",
+  "description": "NutriCat is a veterinary-informed cat nutrition platform offering a free cat food calculator, feeding guides, and educational resources.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "NutriCat",
+    "url": "https://catfoodcalculator.app"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://catfoodcalculator.app/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
 }
 </script>
 
 <!-- FAQ Schema -->
 <script type="application/ld+json">
 {
-"@context":"https://schema.org",
-"@type":"FAQPage",
-"mainEntity":[
-{
-"@type":"Question",
-"name":"How much should I feed my cat?",
-"acceptedAnswer":{"@type":"Answer","text":"Most adult cats need about 40–50 calories per kilogram of body weight per day."}
-},
-{
-"@type":"Question",
-"name":"How often should I feed my cat?",
-"acceptedAnswer":{"@type":"Answer","text":"Feed cats 2–3 meals per day for best results."}
-}
-]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much food should a cat eat per day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most adult cats need about 40–50 calories per kilogram of body weight per day, depending on activity level and metabolism."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many times per day should I feed my cat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the daily food amount into 2–3 meals for better digestion and energy balance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many grams of dry food should a cat eat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This depends on the calorie density of the food. Use the calculator above to estimate the correct portion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I mix wet and dry food?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Many owners combine both types. Just ensure total daily calories remain within recommended levels."
+      }
+    }
+  ]
 }
 </script>
 
@@ -67,7 +106,7 @@ gtag('config', 'G-6SNFPKJN2W');
 
 <div class="container">
 
-<!-- ================= CONTENT (CRITICAL FOR ADSENSE) ================= -->
+<!-- ================= CONTENT ================= -->
 
 <h1>🐱 Cat Feeding Guide</h1>
 <div class="hero" id="hero"></div>
@@ -77,46 +116,93 @@ Feeding your cat correctly is essential for maintaining a healthy weight and pre
 This guide explains how to estimate your cat’s daily food needs using veterinary nutrition principles.
 </p>
 
+<section class="seo-content">
+
 <h2>How Much Should I Feed My Cat?</h2>
 
 <p>
-The amount depends on weight, activity level, and food calorie density. Most adult cats require approximately
-<strong>40–50 calories per kilogram of body weight per day</strong>.
+The amount of food a cat needs depends on body weight, activity level, and the calorie density of the food. 
+Most adult cats require approximately <strong>40–50 calories per kilogram of body weight per day</strong>, but this can vary depending on lifestyle and health condition.
 </p>
-
-<h2>Cat Calorie Formula</h2>
 
 <p>
-Veterinarians use this formula:
+This NutriCat calculator estimates your cat’s daily calorie needs using a veterinary formula known as the <strong>Resting Energy Requirement (RER)</strong>.
 </p>
+
+<h3>Cat Calorie Formula</h3>
 
 <p><strong>RER = 70 × (body weight in kg)<sup>0.75</sup></strong></p>
 
 <p>
-This is multiplied by a factor based on life stage (kitten, neutered, weight loss, etc.).
+This value is then multiplied by a factor based on your cat’s life stage (neutered adult, kitten, weight loss, etc.).
 </p>
 
-<h2>Feeding Tips</h2>
+<h3>Example Calculation</h3>
+
+<p>
+For a 4 kg neutered adult cat:
+</p>
 
 <ul>
-<li>Feed 2–3 meals per day</li>
-<li>Always provide fresh water</li>
-<li>Monitor your cat’s weight regularly</li>
-<li>Adjust portions based on results</li>
+<li>RER ≈ 70 × (4)<sup>0.75</sup> ≈ 200 kcal</li>
+<li>Maintenance ≈ 200 × 1.2 = 240 kcal/day</li>
+<li>If food has 3800 kcal/kg → ~63 grams/day</li>
 </ul>
 
-<h2>Wet Food vs Dry Food</h2>
+<h3>How Many Meals Per Day?</h3>
 
 <p>
-Dry food contains ~3500–4200 kcal/kg, while wet food contains fewer calories but more moisture.
-Always check packaging for exact values.
+Most cats do best when their daily food intake is divided into 2–3 meals. This helps maintain stable energy levels and reduces the risk of overeating.
 </p>
 
-<h2>Important Disclaimer</h2>
+<h3>Wet Food vs Dry Food</h3>
 
 <p>
-This tool provides an estimate only. Always consult a veterinarian for personalized advice.
+Dry food typically contains 3500–4200 kcal/kg, while wet food contains significantly fewer calories but provides more hydration.
+Always check the label of your specific product.
 </p>
+
+<h3>When This Calculator May Not Be Accurate</h3>
+
+<ul>
+<li>Cats with medical conditions (e.g., diabetes, kidney disease)</li>
+<li>Pregnant or lactating cats</li>
+<li>Highly active outdoor cats</li>
+</ul>
+
+<p>
+In these cases, consult a veterinarian for personalized guidance.
+</p>
+
+<h3>Common Feeding Mistakes</h3>
+
+<ul>
+<li>Free-feeding without portion control</li>
+<li>Ignoring calorie differences between foods</li>
+<li>Not adjusting portions over time</li>
+</ul>
+
+<h3>Sources & Methodology</h3>
+
+<p>
+This calculator is based on established veterinary nutrition research:
+</p>
+
+<ul>
+<li>
+<a href="https://www.aaha.org/resources/2021-aaha-nutrition-and-weight-management-guidelines/" target="_blank" rel="noopener">
+AAHA 2021 Nutrition and Weight Management Guidelines
+</a>
+</li>
+
+<li>
+<a href="https://wsava.org/global-guidelines/global-nutrition-guidelines/" target="_blank" rel="noopener">
+WSAVA Global Nutrition Guidelines
+</a>
+</li>
+</ul>
+
+
 
 <hr>
 
@@ -156,8 +242,8 @@ This tool provides an estimate only. Always consult a veterinarian for personali
 
 <div class="result" id="result"></div>
 
-<button id="copyResult">Copy Result</button>
-<button id="downloadImage">Download / Share</button>
+<button id="copyResult" aria-label="Copy result to clipboard"></button>
+<button id="downloadImage" aria-label="Download result">Download / Share</button>
 
 <canvas id="shareCanvas" width="400" height="200" style="display:none;"></canvas>
 
@@ -167,9 +253,9 @@ This tool provides an estimate only. Always consult a veterinarian for personali
 
 <div id="feedback">
   <p>What would help you more?</p>
-  <button class="feedback-btn" data-answer="schedule">Feeding schedule</button>
-  <button class="feedback-btn" data-answer="brands">Best food brands</button>
-  <button class="feedback-btn" data-answer="weight">Weight loss plan</button>
+  <button class="feedback-btn" data-answer="schedule" aria-label="Feeding schedule">Feeding schedule</button>
+  <button class="feedback-btn" data-answer="brands" aria-label="Best food brands">Best food brands</button>
+  <button class="feedback-btn" data-answer="weight" aria-label="Weight loss plan">Weight loss plan</button>
 </div>
 
 <hr>
@@ -185,10 +271,37 @@ This tool provides an estimate only. Always consult a veterinarian for personali
 <li><a href="wet-vs-dry-cat-food.html">Wet vs Dry Food Guide</a></li>
 </ul>
 
+<section class="faq">
+
+<h2>Cat Feeding FAQ</h2>
+
+<h3>How much food should a cat eat per day?</h3>
+<p>
+Most adult cats need about 40–50 calories per kilogram of body weight per day, depending on activity level and metabolism.
+</p>
+
+<h3>How many times per day should I feed my cat?</h3>
+<p>
+Divide the daily food amount into 2–3 meals for better digestion and energy balance.
+</p>
+
+<h3>How many grams of dry food should a cat eat?</h3>
+<p>
+This depends on the calorie density of the food. Use the calculator above to estimate the correct portion.
+</p>
+
+<h3>Can I mix wet and dry food?</h3>
+<p>
+Yes. Many owners combine both. Just ensure total daily calories remain within recommended levels.
+</p>
+
+</section>
+
 <footer class="footer-links">
 <p>© 2026 NutriCat</p>
 <a href="about.html">About</a> |
-<a href="privacy.html">Privacy Policy</a>
+<a href="privacy.html">Privacy Policy</a> |
+<a href="terms.html">Terms</a>
 </footer>
 
 </div>

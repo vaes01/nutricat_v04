@@ -17,7 +17,7 @@
   </url>
 
   <url>
-    <loc>https://catfoodcalculator.app/cat-wight-loss-guide.html</loc>
+    <loc>https://catfoodcalculator.app/cat-weight-loss-guide.html</loc>
     <priority>0.5</priority>
   </url>
 
@@ -30,6 +30,11 @@
     <loc>https://catfoodcalculator.app/privacy.html</loc>
     <priority>0.5</priority>
   </url>
+
+  <url>
+    <loc>https://catfoodcalculator.app/terms.html</loc>
+    <priority>0.5</priority>
+</url>
 
 
 

@@ -16,30 +16,6 @@ const translations = {
     copyResult: "Copy Result",
     downloadImage: "Download / Share",
     shareText: "Share this calculator with other cat owners 🐱",
-    seoContent: `
-<h2>How Much Should I Feed My Cat?</h2>
-<p>The amount of food a cat needs depends mainly on body weight, activity level, and the energy density of the food. Most adult cats require between 40–50 calories per kilogram of body weight per day, but this can vary.</p>
-<p>Our NutriCat calculator estimates daily calorie needs using the Resting Energy Requirement (RER) formula used in veterinary nutrition.</p>
-<h3>Cat Calorie Formula</h3>
-<p><strong>RER = 70 × (body weight in kg)<sup>0.75</sup></strong></p>
-<p>This value is multiplied by a factor depending on the cat’s life stage (neutered adult, kitten, weight loss, etc.).</p>
-<h3>How Many Meals Should a Cat Eat Per Day?</h3>
-<p>Most cats do best when their daily food portion is divided into two or three meals per day. Feeding multiple small meals helps maintain stable energy levels and prevent overeating.</p>
-<h3>Wet Food vs Dry Food</h3>
-<p>Dry cat food usually contains 3500–4200 kcal/kg, while wet food has fewer calories. Check the food packaging for exact calorie information.</p>
-<h3>Important Note</h3>
-<p>This calculator provides an estimate based on veterinary nutrition guidelines. Individual cats may vary. Consult your veterinarian for personalized advice.</p>`,
-    faqContent: `
-<h2>Cat Feeding FAQ</h2>
-<h3>How much food should a cat eat per day?</h3>
-<p>Most adult cats need about 40–50 calories per kilogram of body weight per day.</p>
-<h3>How many times per day should I feed my cat?</h3>
-<p>Divide the daily food amount into two or three meals per day.</p>
-<h3>How many grams of dry food should a cat eat?</h3>
-<p>This depends on the calorie density of the food. Use the calculator above.</p>
-<h3>Can I mix wet and dry food?</h3>
-<p>Yes. Ensure total daily calories stay within recommended intake.</p>
-`,
     shareMessage: "Divide into 2–3 meals per day"
   },
   pt: {
@@ -61,30 +37,6 @@ const translations = {
     copyResult: "Copiar resultado",
     downloadImage: "Baixar / Compartilhar",
     shareText: "Compartilhe esta calculadora com outros donos de gatos 🐱",
-    seoContent: `
-<h2>Quanto devo alimentar meu gato?</h2>
-<p>A quantidade de alimento que um gato precisa depende principalmente do peso corporal, nível de atividade e densidade energética do alimento. A maioria dos gatos adultos precisa entre 40–50 calorias por quilograma de peso corporal por dia, mas isso pode variar.</p>
-<p>Nosso calculador NutriCat estima as necessidades calóricas diárias usando a fórmula de Requisito Energético de Repouso (RER) utilizada na nutrição veterinária.</p>
-<h3>Fórmula de Calorias para Gatos</h3>
-<p><strong>RER = 70 × (peso corporal em kg)<sup>0.75</sup></strong></p>
-<p>Esse valor é multiplicado por um fator dependendo do estágio de vida do gato (adulto castrado, filhote, perda de peso etc.).</p>
-<h3>Quantas refeições por dia?</h3>
-<p>A maioria dos gatos se sai melhor quando sua porção diária de alimento é dividida em duas ou três refeições por dia. Alimentar várias pequenas refeições ajuda a manter níveis de energia estáveis e evita excessos.</p>
-<h3>Ração seca vs úmida</h3>
-<p>Rações secas geralmente contêm 3500–4200 kcal/kg, enquanto ração úmida tem menos calorias. Verifique a embalagem do alimento para informações exatas.</p>
-<h3>Nota importante</h3>
-<p>Esta calculadora fornece uma estimativa com base nas diretrizes de nutrição veterinária. Gatos individuais podem variar. Consulte seu veterinário para aconselhamento personalizado.</p>`,
-    faqContent: `
-<h2>Perguntas Frequentes</h2>
-<h3>Quanto alimento um gato deve comer por dia?</h3>
-<p>A maioria dos gatos adultos precisa de cerca de 40–50 calorias por quilograma de peso corporal por dia.</p>
-<h3>Quantas vezes por dia devo alimentar meu gato?</h3>
-<p>Divida a quantidade diária de alimento em duas ou três refeições por dia.</p>
-<h3>Quantos gramas de ração seca um gato deve comer?</h3>
-<p>Depende da densidade calórica do alimento. Use o calculador acima.</p>
-<h3>Posso misturar ração úmida e seca?</h3>
-<p>Sim. Certifique-se de que as calorias diárias totais fiquem dentro da ingestão recomendada.</p>
-`,
     shareMessage: "Divida em 2–3 refeições por dia"
   }
 };
@@ -114,8 +66,7 @@ function applyLanguage() {
   document.getElementById("copyResult").innerText = t.copyResult;
   document.getElementById("downloadImage").innerText = t.downloadImage;
   document.getElementById("shareText").innerText = t.shareText;
-  // document.getElementById("seoContent").innerHTML = t.seoContent;
-  // document.getElementById("faqContent").innerHTML = t.faqContent;
+ 
 
   weightInput.placeholder = currentLang==="en"?"e.g. 4.5":"ex: 4,5";
   document.querySelectorAll("#type option").forEach(opt=>{opt.textContent=opt.getAttribute(`data-${currentLang}`)});
